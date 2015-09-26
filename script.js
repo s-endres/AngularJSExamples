@@ -1,2 +1,7 @@
-
-console.log("angular object",angular);
+angular.module('mainApp',[])
+.config([function (){
+	console.log("Configuration hook");
+}])
+.run([function(){
+	console.log("Run hook");
+}])
