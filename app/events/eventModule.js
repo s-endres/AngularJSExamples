@@ -34,3 +34,9 @@
     }
 
 }])
+.controller('EventItemController', ['$scope', function ($scope) {
+    $scope.itemTitle = "Item title";
+    $scope.description = "Description";
+    $scope.imgSrc = "assets/img/newyork_large.jpg";
+    $scope.date = "January 24, 2015";
+}])
