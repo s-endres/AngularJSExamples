@@ -40,3 +40,14 @@
     $scope.imgSrc = "assets/img/newyork_large.jpg";
     $scope.date = "January 24, 2015";
 }])
+.controller('EventTabController', ['$scope', function ($scope) {
+    $scope.tab = 0;
+    $scope.setTab=function(val)
+    {
+        $scope.tab = val;
+    }
+    $scope.getTab=function()
+    {
+        return($scope.tab);
+    }
+}])
