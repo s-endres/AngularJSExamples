@@ -83,7 +83,6 @@
 
         </div>
         <!-- /.row -->
-
         <!-- Related Projects Row -->
         <div class="row" ng-controller="EventController as boom">
 
@@ -91,7 +90,9 @@
                 <h3 class="page-header">Related Projects</h3>
             </div>
 
-            <div ng-repeat="item in boom.events | orderBy: 'date'" class="col-sm-3 col-xs-6">
+            <div class="col-lg-12"><input type="text" ng-model="boom.search" placeholder="Search by City"></div>
+
+            <div ng-repeat="item in boom.events | orderBy: 'date' | searchCity:boom.search" class="col-sm-3 col-xs-6">
                 <a href="#">
                     <img class="img-responsive portfolio-item" src="assets/img/{{item.imgName}}_small.jpg" alt="">
                 </a>
