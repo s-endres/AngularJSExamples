@@ -1,0 +1,9 @@
+﻿<div ng-repeat="item in boom.events | orderBy: 'date' | searchCity:boom.search" class="col-sm-3 col-xs-6">
+    <a href="#">
+        <img class="img-responsive portfolio-item" src="assets/img/{{item.imgName}}_small.jpg" alt="">
+    </a>
+    <div>
+        <h4>{{item.title}}</h4>
+        <p>{{item.date | date:'MMMM,dd yyyy'}}</p>
+    </div>
+</div>
