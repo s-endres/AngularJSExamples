@@ -19,10 +19,8 @@
     };
 })
 .config([function () {
-    console.log("EM: Configuration hook");
 }])
 .run([function () {
-    console.log("EM: Run hook");
 }])
 .controller('EventController', ['$scope', 'MainTitle', function ($scope,mainTitle){
     this.title = mainTitle.title;
