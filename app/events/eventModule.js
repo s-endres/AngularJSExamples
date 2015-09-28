@@ -11,8 +11,8 @@
     console.log("EM: Run hook");
 }])
 .controller('EventController', ['$scope', 'MainTitle', function ($scope,mainTitle){
-    $scope.title = mainTitle.title;
-    $scope.menu =[
+    this.title = mainTitle.title;
+    $scope.menu = [
         {
             name:"Events",
             href:"index.html"
