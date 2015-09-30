@@ -1,0 +1,58 @@
+﻿<!-- Portfolio Item Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            New York
+            <small>January 24th, 2015</small>
+        </h1>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Portfolio Item Row -->
+<div class="row" ng-controller="EventItemController">
+
+    <div class="col-md-8">
+        <img class="img-responsive" src="assets/img/newyork_big.jpg" alt="">
+    </div>
+
+    <div ng-controller="EventTabController as tabCtrl" class="col-md-4">
+        <h3>{{itemTitle}}</h3>
+        <p>{{description}}</p>
+        <h3>Details</h3>
+        <div>
+            <ul class="nav nav-tabs">
+                <li ng-repeat="item in tabCtrl.tabs" ng-click="setTab($index)" ng-class="getMyClass($index)">
+                    <a href="#">{{item.title}}</a>
+                </li>
+
+            </ul>
+            <div ng-repeat="item in tabCtrl.tabs" ng-show="isTabCurrent($index)">{{item.description}}</div>
+        </div>
+    </div>
+
+</div>
+<!-- /.row -->
+<!-- Related Projects Row -->
+<div class="row" ng-controller="EventController as boom">
+
+    <div class="col-lg-12">
+        <h3 class="page-header">Related Projects</h3>
+    </div>
+
+    <div class="col-lg-12"><input type="text" ng-model="boom.search" placeholder="Search by City"></div>
+    <event-item></event-item>
+
+</div>
+<!-- /.row -->
+
+<hr>
+
+<!-- Footer -->
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>Copyright &copy; Young Game Makers 2015</p>
+        </div>
+    </div>
+    <!-- /.row -->
+</footer>
