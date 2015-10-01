@@ -1,6 +1,7 @@
 ﻿angular.module('mainApp', ['eventModule', 'ngRoute'])
 .config(['$routeProvider',
   function ($routeProvider) {
+      console.log($routeProvider);
       $routeProvider.
         when('/contact', {
             templateUrl: 'contact.html',
