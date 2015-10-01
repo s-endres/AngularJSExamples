@@ -16,8 +16,13 @@
     /* Run is when the app gets kicked off*/
     console.log("Run hook");
 }])
-.controller('ContactCtrl', ['$scope', function ($scope) {
-}])
-.controller('HomeCtrl', ['$scope', function ($scope) {
-
-}])
+.factory('Events', ['$http', function ($http) {
+    return {
+        get: function (callback) {
+            $http.get('data/events.json')
+            .success(function (data) {
+                callback(data);
+            });
+        }
+    };
+}]);

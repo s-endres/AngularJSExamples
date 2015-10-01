@@ -22,7 +22,7 @@
 }])
 .run([function () {
 }])
-.controller('EventController', ['$scope', '$http', 'MainTitle', function ($scope,$http,mainTitle){
+.controller('EventController', ['$scope', '$http', 'Events', 'MainTitle', function ($scope,$http,Events,mainTitle){
     this.title = mainTitle.title;
     $scope.menu = [
         {
@@ -52,10 +52,8 @@
 
     this.getData = function () {
         var scope = this;
-        $http.get('data/events.json')
-        .success(function (data) {
+        Events.get(function (data) {
             scope.events = data;
-            console.log(data);
         });
     }
 
