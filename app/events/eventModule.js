@@ -27,11 +27,11 @@
     $scope.menu = [
         {
             name:"Events",
-            href:"#/"
+            href:"home"
         },
         {
             name:"Contact",
-            href:"#/contact"
+            href:"contact"
         }
     ]
 

@@ -1,19 +1,16 @@
-﻿angular.module('mainApp', ['eventModule', 'ngRoute'])
-.config(['$routeProvider',
-  function ($routeProvider) {
-      console.log($routeProvider);
-      $routeProvider.
-        when('/contact', {
-            templateUrl: 'contact.html',
-            controller: 'ContactCtrl'
+﻿angular.module('mainApp', ['eventModule', 'ngRoute', 'ui.router'])
+.config(['$urlRouterProvider', '$stateProvider',
+  function ($urlRouterProvider, $stateProvider) {
+      $stateProvider.
+        state('home', {
+            url: '/home',
+            templateUrl: 'home.html'
         }).
-        when('/', {
-            templateUrl: 'home.html',
-            controller: 'HomeCtrl'
-        }).
-        otherwise({
-            redirectTo: '/'
-        });
+        state('contact', {
+            url: '/contact',
+            templateUrl: 'contact.html'
+        })
+      $urlRouterProvider.when('', '/home')
   }])
 .run([function () {
     /* Run is when the app gets kicked off*/
