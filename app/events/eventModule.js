@@ -22,7 +22,7 @@
 }])
 .run([function () {
 }])
-.controller('EventController', ['$scope', 'MainTitle', function ($scope,mainTitle){
+.controller('EventController', ['$scope', '$http', 'MainTitle', function ($scope,$http,mainTitle){
     this.title = mainTitle.title;
     $scope.menu = [
         {
@@ -50,52 +50,16 @@
         }
     }
 
-    this.events = [
-	{
-	    title: "New York",
-	    itemTitle: mainTitle.title,
-	    description: " is a one day event that teaches kids how to code",
-	    imgName: "newyork",
-	    date: Date.parse("January 24 2015")
-	},
-	{
-	    title: "Seattle",
-	    itemTitle: mainTitle.title,
-	    description: " is a one day event that teaches kids how to code",
-	    imgName: "seattle",
-	    date: Date.parse("February 24 2015")
-	},
-	{
-	    title: "San Francisco",
-	    itemTitle: mainTitle.title,
-	    description: " is a one day event that teaches kids how to code",
-	    imgName: "sanfran",
-	    date: Date.parse("January 24 2015")
-	},
-	{
-	    title: "Vancouver",
-	    itemTitle: mainTitle.title,
-	    description: " is a one day event that teaches kids how to code",
-	    imgName: "vancouver",
-	    date: Date.parse("March 24 2015")
-	},
-	{
-	    title: "Brighton",
-	    itemTitle: mainTitle.title,
-	    description: " is a one day event that teaches kids how to code",
-	    imgName: "brighton",
-	    date: Date.parse("September 24 2015")
-	},
+    this.getData = function () {
+        var scope = this;
+        $http.get('data/events.json')
+        .success(function (data) {
+            scope.events = data;
+            console.log(data);
+        });
+    }
 
-	{
-	    title: "London",
-	    itemTitle: mainTitle.title,
-	    description: " is a one day event that teaches kids how to code",
-	    imgName: "London",
-	    date: Date.parse("September 26 2015")
-	},
-
-    ]
+    this.getData();
 
 }])
 .controller('EventItemController', ['$scope', 'MainTitle', function ($scope,mainTitle) {
